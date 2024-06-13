@@ -1,10 +1,15 @@
-import BaseLayout from "@/components/BaseLayout"
-import { Button } from "@nextui-org/react"
+import BaseLayout from "@/components/BaseLayout";
+import Browse from "@/components/Browse";
+import HeroComponent from "@/components/HeroComponent";
+import { Button } from "@nextui-org/react";
 
 const Home = () => {
   return (
-    <BaseLayout active="">Hi</BaseLayout>
-  )
-}
+    <BaseLayout active="">
+      <HeroComponent />
+      <Browse />
+    </BaseLayout>
+  );
+};
 
-export default Home
+export default Home;

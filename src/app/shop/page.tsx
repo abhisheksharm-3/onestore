@@ -1,8 +1,9 @@
-import React from 'react'
+import BaseLayout from '@/components/BaseLayout'
+
 
 const Shop = () => {
   return (
-    <div>Shop</div>
+    <BaseLayout>Shop</BaseLayout>
   )
 }
 

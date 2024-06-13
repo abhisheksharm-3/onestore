@@ -1,4 +1,10 @@
-import { RiHeart3Line, RiSearchLine, RiShoppingCart2Line, RiUser5Fill } from "@remixicon/react";
+import { Tooltip } from "@nextui-org/react";
+import {
+  RiHeart3Line,
+  RiSearchLine,
+  RiShoppingCart2Line,
+  RiUser5Fill,
+} from "@remixicon/react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,9 +15,16 @@ const Links = {
   Contact: "/contact",
 };
 
+const Icons = [
+  { icon: RiUser5Fill, url: "/profile", label: "Profile" },
+  { icon: RiSearchLine, url: "/", label: "Search" },
+  { icon: RiHeart3Line, url: "/wishlist", label: "Wishlist" },
+  { icon: RiShoppingCart2Line, url: "/cart", label: "Cart" },
+];
+
 const Navbar = () => {
   return (
-    <div className="flex flex-row items-center justify-around h-[100px] w-screen container">
+    <div className="flex flex-row items-center justify-between h-[100px] w-screen container">
       <Link href="/" className="cursor-pointer">
         <Image
           src="/images/logo-long.png"
@@ -19,7 +32,6 @@ const Navbar = () => {
           width={200}
           height={100}
           priority={true}
-          // className="absolute" //pos absolute here
         />
       </Link>
       <div className=" flex flex-row items-center justify-around gap-20">
@@ -32,18 +44,13 @@ const Navbar = () => {
         ))}
       </div>
       <div className="flex gap-10 text-gray-400">
-        <Link href="/profile">
-          <RiUser5Fill className="hover:text-white ease-in-out duration-400"/>
-        </Link>
-        <Link href="/">
-          <RiSearchLine className="hover:text-white ease-in-out duration-400"/>
-        </Link>
-        <Link href="/wishlist">
-          <RiHeart3Line className="hover:text-white ease-in-out duration-400"/>
-        </Link>
-        <Link href="/cart">
-          <RiShoppingCart2Line className="hover:text-white ease-in-out duration-400"/>
-        </Link>
+        {Icons.map(({ icon: IconComponent, url, label }, index) => (
+          <Link key={index} href={url}>
+            <Tooltip content={label} placement="top" delay={1000} closeDelay={1000}>
+              <IconComponent className="hover:text-white ease-in-out duration-400" />
+            </Tooltip>
+          </Link>
+        ))}
       </div>
     </div>
   );

@@ -10,12 +10,12 @@ const BaseLayout = ({
 }: {
   className?: string;
   children: ReactNode;
-  active: string;
+  active?: string;
 }) => {
   return (
     <div
       className={cn(
-        "h-screen w-screen flex flex-col justify-between items-center",
+        "h-screen w-screen flex flex-col justify-between items-center font-sans",
         className
       )}
     >
