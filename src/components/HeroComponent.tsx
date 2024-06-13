@@ -2,7 +2,7 @@ import { Button } from "@nextui-org/react";
 
 const HeroComponent = () => {
   return (
-    <div className="bg-[url('/images/hero-page.png')] w-full h-full bg-center bg-cover bg-no-repeat flex justify-end items-center container brightness-90">
+    <div className="bg-[url('/images/hero-page.png')] w-full h-screen bg-cover bg-no-repeat flex justify-end px-10 overflow-y-hidden items-center brightness-90">
       <div className="bg-[#FFF3E3] flex flex-col p-10 rounded-md gap-3">
         <p className="text-black font-semibold">New Arrival</p>
         <span className="font-bold text-[#B88E2F] text-6xl tracking-tight leading-16">Disocver Our<br /> New Collection</span>

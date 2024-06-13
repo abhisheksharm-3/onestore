@@ -15,7 +15,7 @@ const BaseLayout = ({
   return (
     <div
       className={cn(
-        "h-screen w-screen flex flex-col justify-between items-center font-sans",
+        "w-screen flex flex-col justify-between items-center font-sans",
         className
       )}
     >
