@@ -17,7 +17,7 @@ const Help = {
 
 const Footer = () => {
   return (
-    <div className="container flex flex-col pb-4 text-gray-400">
+    <div className="container flex flex-col pb-4 text-gray-400 font-medium text-lg">
       <div className="flex px-2 items-start w-full justify-between">
         <div className="flex flex-col gap-20 justify-around pb-8">
           <Image

@@ -15,8 +15,8 @@ const Browse = () => {
       </div>
       <div className="flex gap-4">
       {Range.map((item, index) => (
-          <div key={index} className="flex flex-col items-center gap-6 cursor-pointer">
-            <Image src={item.image} alt={item.label} width={380} height={480} className="rounded-md" />
+          <div key={index} className="flex flex-col items-center gap-6 cursor-pointer hover:-translate-y-3 ease-in-out duration-500">
+            <Image src={item.image} alt={item.label} width={380} height={480} className="rounded-lg hover:brightness-50 ease-in-out duration-500" />
             <p className="font-semibold text-2xl">{item.label}</p>
           </div>
         ))}

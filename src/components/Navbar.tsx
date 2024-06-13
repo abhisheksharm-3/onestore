@@ -37,7 +37,7 @@ const Navbar = () => {
       <div className=" flex flex-row items-center justify-around gap-20">
         {Object.entries(Links).map(([name, url]) => (
           <Link key={name} href={url}>
-            <span className="text-gray-400 hover:text-white ease-in-out duration-400 cursor-pointer">
+            <span className="text-gray-400 hover:text-white ease-in-out duration-400 cursor-pointer font-medium text-lg">
               {name}
             </span>
           </Link>
