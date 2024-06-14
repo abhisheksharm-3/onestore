@@ -3,7 +3,7 @@ import BaseLayout from '@/components/BaseLayout'
 
 const Shop = () => {
   return (
-    <BaseLayout>Shop</BaseLayout>
+    <BaseLayout active='Shop'>Shop</BaseLayout>
   )
 }
 

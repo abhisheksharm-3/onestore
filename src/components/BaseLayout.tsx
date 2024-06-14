@@ -19,7 +19,7 @@ const BaseLayout = ({
         className
       )}
     >
-      <Navbar />
+      <Navbar active={active}/>
       {children}
       <Footer />
     </div>

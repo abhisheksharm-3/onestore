@@ -6,7 +6,7 @@ import { Button } from "@nextui-org/react";
 
 const Home = () => {
   return (
-    <BaseLayout active="">
+    <BaseLayout active="Home">
     <LandingPage />
     </BaseLayout>
   );

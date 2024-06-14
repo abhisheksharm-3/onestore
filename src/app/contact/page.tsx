@@ -2,7 +2,7 @@ import BaseLayout from "@/components/BaseLayout"
 
 const Contact = () => {
   return (
-    <BaseLayout>Contact</BaseLayout>
+    <BaseLayout active="Contact">Contact</BaseLayout>
   )
 }
 

@@ -1,8 +1,9 @@
+import BaseLayout from "@/components/BaseLayout"
 
 
 const About = () => {
   return (
-    <div>About</div>
+    <BaseLayout active="About">About</BaseLayout>
   )
 }
 

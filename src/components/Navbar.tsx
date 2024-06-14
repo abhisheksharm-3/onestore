@@ -1,4 +1,7 @@
+"use client"
+import { useEffect, useRef } from "react";
 import { Tooltip } from "@nextui-org/react";
+import { gsap } from "gsap";
 import {
   RiHeart3Line,
   RiSearchLine,
@@ -22,9 +25,28 @@ const Icons = [
   { icon: RiShoppingCart2Line, url: "/cart", label: "Cart" },
 ];
 
-const Navbar = () => {
+const Navbar = ({ active }: { active?: string }) => {
+  const linkRefs = useRef<(HTMLSpanElement | null)[]>([]);
+
+  useEffect(() => {
+    linkRefs.current.forEach((link, index) => {
+      if (link) {
+        const underline = link.querySelector(".underline");
+        const tl = gsap.timeline({ paused: true });
+        tl.to(underline, {
+          scaleX: 1,
+          transformOrigin: "bottom left",
+          ease: "power1.inOut",
+        });
+
+        link.addEventListener("mouseenter", () => tl.play());
+        link.addEventListener("mouseleave", () => tl.reverse());
+      }
+    });
+  }, []);
+
   return (
-    <div className="flex flex-row items-center justify-between h-[100px] w-screen container">
+    <div className="flex flex-row items-center justify-between h-24 w-screen container mx-auto px-4">
       <Link href="/" className="cursor-pointer">
         <Image
           src="/images/logo-long.png"
@@ -34,11 +56,22 @@ const Navbar = () => {
           priority={true}
         />
       </Link>
-      <div className=" flex flex-row items-center justify-around gap-20">
-        {Object.entries(Links).map(([name, url]) => (
+      <div className="flex flex-row items-center justify-around gap-20">
+        {Object.entries(Links).map(([name, url], index) => (
           <Link key={name} href={url}>
-            <span className="text-gray-400 hover:text-white ease-in-out duration-400 cursor-pointer font-medium text-lg">
+            <span
+              ref={(el) => {
+                linkRefs.current[index] = el;
+              }}
+              className={`relative ${
+                active === name ? "text-white" : "text-gray-400"
+              } hover:text-white ease-in-out duration-400 cursor-pointer font-medium text-lg`}
+            >
               {name}
+              <span
+                className="underline absolute bottom-0 left-0 w-full h-0.5 bg-white transform scale-x-0"
+                style={{ transformOrigin: "bottom left", transition: "transform 0.25s ease-out" }}
+              ></span>
             </span>
           </Link>
         ))}
@@ -46,7 +79,12 @@ const Navbar = () => {
       <div className="flex gap-10 text-gray-400">
         {Icons.map(({ icon: IconComponent, url, label }, index) => (
           <Link key={index} href={url}>
-            <Tooltip content={label} placement="top" delay={1000} closeDelay={1000}>
+            <Tooltip
+              content={label}
+              placement="top"
+              delay={1000}
+              closeDelay={1000}
+            >
               <IconComponent className="hover:text-white ease-in-out duration-400" />
             </Tooltip>
           </Link>
@@ -57,3 +95,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
